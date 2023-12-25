@@ -7,4 +7,6 @@ export class Product {
       this.productPrice = productPrice;
       this.productQuantity = productQuantity;
     }
+
+    dfdfdf
 }
