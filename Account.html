@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login and Signup Page</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            
+            height: 100vh;
+            overflow: hidden;
+            
+        }
+        .main{
+            width: 55%;
+            display: flex;
+            justify-content:center;
+            align-items: center;
+            margin-left: 20%;
+            margin-top: 5%;
+        }
+
+        .side-image {
+            flex: 1;
+            margin-left: 30px;
+            margin-top: 24px;
+        }
+        img{
+            border-radius: 8px 0px 0px 8px;
+            height: 390px;
+            width: 380px;
+        }
+
+        .auth-container {
+            flex: 1;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+            height: 390px;
+            margin-left: -33px;
+            margin-top: 20px;
+        }
+
+        .form-container {
+            background:cadetblue;
+            border-radius: 0px 8px 8px 0px;
+            box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+            overflow: hidden;
+            height: 390px;
+            width: 50vh;
+            max-width: 100%;
+        }
+
+        .tabs {
+            display: flex;
+        }
+
+        .tab {
+            flex: 1;
+            text-align: center;
+            padding: 15px;
+            cursor: pointer;
+            font-size: 16px;
+            color: #555;
+            transition: background 0.3s ease;
+        }
+
+        .tab:hover {
+            background: #f5f5f5;
+        }
+
+        .active-tab {
+            background: #4caf50;
+            color: #fff;
+        }
+
+        .form-content {
+            padding: 20px;
+            box-sizing: border-box;
+        }
+
+        label {
+            display: block;
+            font-size: 14px;
+            margin-bottom: 8px;
+            color: #333;
+        }
+
+        input {
+            width: 100%;
+            padding: 10px;
+            box-sizing: border-box;
+            border: 1px solid #ccc;
+            border-radius: 4px;
+            font-size: 14px;
+            margin-bottom: 20px;
+        }
+
+        button {
+            background: #4caf50;
+            color: #fff;
+            padding: 12px;
+            border: none;
+            border-radius: 4px;
+            cursor: pointer;
+            font-size: 16px;
+            width: 100%;
+            transition: background 0.3s ease;
+        }
+
+        button:hover {
+            background: #45a049;
+        }
+
+        .social-icons {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .social-icons i {
+            font-size: 24px;
+            margin: 0 10px;
+            color: #555;
+            cursor: pointer;
+            transition: color 0.3s ease;
+        }
+
+        .social-icons i:hover {
+            color: #4caf50;
+        }
+        
+    </style>
+</head>
+<body>
+    <a href="./Delivero.html"><button>Go To Main Page</button></a>
+
+    <div class="main">
+    <div class="side-image"><img src="https://watermark.lovepik.com/photo/40008/0007.jpg_wh1200.jpg" alt=""></div>
+    <div class="auth-container">
+        <div class="form-container">
+            <div class="tabs">
+                <div class="tab active-tab" onclick="showLoginForm()">Login</div>
+                <div class="tab" onclick="showSignupForm()">Sign up</div>
+            </div>
+            <div class="form-content" id="loginForm">
+                <label for="username">Username:</label>
+                <input type="text" id="username" name="username" required>
+
+                <label for="password">Password:</label>
+                <input type="password" id="password" name="password" required>
+
+                <button onclick="validateLogin()">Login</button>
+
+
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google"></i>
+                </div>
+            </div>
+            <div class="form-content" id="signupForm" style="display: none;">
+                <label for="newUsername">Username:</label>
+                <input type="text" id="newUsername" name="newUsername" required>
+
+                <label for="newPassword">Password:</label>
+                <input type="password" id="newPassword" name="newPassword" required>
+
+                <button onclick="validateSignup()">Sign up</button>
+
+                <div class="social-icons">
+                    <i class="fab fa-facebook"></i>
+                    <i class="fab fa-twitter"></i>
+                    <i class="fab fa-google"></i>
+                </div>
+            </div>
+        </div>
+    </div>
+
+</div>
+
+    <script>
+        function showLoginForm() {
+            document.getElementById('loginForm').style.display = 'block';
+            document.getElementById('signupForm').style.display = 'none';
+            document.querySelector('.tab.active-tab').classList.remove('active-tab');
+            document.querySelector('.tab:nth-child(1)').classList.add('active-tab');
+        }
+
+        function showSignupForm() {
+            document.getElementById('loginForm').style.display = 'none';
+            document.getElementById('signupForm').style.display = 'block';
+            document.querySelector('.tab.active-tab').classList.remove('active-tab');
+            document.querySelector('.tab:nth-child(2)').classList.add('active-tab');
+        }
+
+        function validateLogin() {
+            var username = document.getElementById('username').value;
+            var password = document.getElementById('password').value;
+
+            // Basic client-side validation
+            if (username === '' || password === '') {
+                alert('Please enter both username and password.');
+            } else {
+                // Send data to the server for further validation
+                // In a real-world scenario, use AJAX or fetch to send data to the server
+                alert('Login successful! Redirecting...');
+                // Redirect to the home page or dashboard after successful login
+                // window.location.href = 'home.html';
+            }
+        }
+
+        function validateSignup() {
+            var newUsername = document.getElementById('newUsername').value;
+            var newPassword = document.getElementById('newPassword').value;
+
+            // Basic client-side validation
+            if (newUsername === '' || newPassword === '') {
+                alert('Please enter both username and password.');
+            } else {
+                // Send data to the server for further validation
+                // In a real-world scenario, use AJAX or fetch to send data to the server
+                alert('Signup successful! Redirecting...');
+                // Redirect to the home page or dashboard after successful signup
+                // window.location.href = 'home.html';
+            }
+        }
+    </script>
+</body>
+</html>
