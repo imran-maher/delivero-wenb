@@ -8,5 +8,5 @@ export class Product {
       this.productQuantity = productQuantity;
     }
 
-    dfdfdf
+    
 }
